@@ -4,9 +4,10 @@ import LoginComponent from "./components/LoginComponent";
 import SignupComponent from "./components/SignupComponent";
 import MpesaPaymentComponent from "./components/MpesaPaymentComponent";
 import NavbarComponent from "./components/NavbarComponent";
-// import DashboardComponent from "/DashboardComponent";
 import PostJobComponent from "./components/PostJobComponent";
 import JobListComponent from "./components/JobListComponent";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 
 function App() {
   return (
