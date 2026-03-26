@@ -114,28 +114,6 @@ function FooterComponent() {
               </strong>
             </p>
           </div>
-
-          <div className="col-md-5 col-lg-4">
-            <div className="text-center text-md-end">
-              <ul className="list-unstyled list-inline mb-0">
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

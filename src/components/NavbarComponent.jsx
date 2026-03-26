@@ -45,15 +45,7 @@ function NavbarComponent() {
                 📖 About Us
               </Link>
             </li>
-            <li>
-              {" "}
-              <Link
-                className="nav-link fs-6 fw-medium"
-                to="/featured_companies"
-              >
-                🌟 Featured Companies 🌟
-              </Link>
-            </li>
+            <li> </li>
           </ul>
 
           {/* Right Side Links */}

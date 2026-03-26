@@ -18,6 +18,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavbarComponent />
+        <header className="App-header">
+          <FeaturedCompaniesComponent />
+        </header>
 
         <div className="container mt-4" style={{ minHeight: "80vh" }}>
           <Routes>
