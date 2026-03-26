@@ -65,14 +65,6 @@ function FooterComponent() {
                 Contact
               </Link>
             </p>
-            <p>
-              <Link
-                className="nav-link fs-6 fw-medium"
-                to="/featured_companies"
-              >
-                🌟 Featured Companies 🌟
-              </Link>
-            </p>
           </div>
 
           {/* Contact Info */}
