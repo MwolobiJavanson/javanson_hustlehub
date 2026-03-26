@@ -22,8 +22,6 @@ function JobListComponent() {
     }
   };
 
-  // --- Filter and Sort Logic ---
-  // We filter first to reduce the list, then sort the remaining items
   const filteredAndSortedJobs = jobs
     .filter(
       (job) =>
@@ -134,7 +132,6 @@ function JobListComponent() {
             </div>
           ))
         ) : (
-          /* Empty State */
           <div className="col-12 text-center py-5">
             <h4 className="text-muted">
               No jobs found matching "{searchTerm}"
