@@ -80,8 +80,8 @@ function FooterComponent() {
               support@jobhubportal.co.ke
             </p>
             <p className="small">
-              <i className="fas fa-phone me-2 text-success"></i> +254 700 000
-              000
+              <i className="fas fa-phone me-2 text-success"></i> +254 718 840
+              790
             </p>
           </div>
 
