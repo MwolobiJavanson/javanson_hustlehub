@@ -119,17 +119,17 @@ function FooterComponent() {
             <div className="text-center text-md-end">
               <ul className="list-unstyled list-inline mb-0">
                 <li className="list-inline-item">
-                  <a href="#" className="text-white ms-3 fs-5">
+                  <a href="#" className="text-secondary ms-3 fs-5">
                     <i className="fab fa-facebook"></i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a href="#" className="text-white ms-3 fs-5">
+                  <a href="#" className="text-secondary ms-3 fs-5">
                     <i className="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a href="#" className="text-white ms-3 fs-5">
+                  <a href="#" className="text-secondary ms-3 fs-5">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </li>
