@@ -9,6 +9,7 @@ import JobListComponent from "./components/JobListComponent";
 import FooterComponent from "./components/FooterComponent";
 import AboutComponent from "./components/AboutComponent";
 import ContactComponent from "./components/ContactComponent";
+import FeaturedCompaniesComponent from "./components/FeaturedCompanyComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
@@ -27,6 +28,10 @@ function App() {
             <Route path="/payment" element={<MpesaPaymentComponent />} />
             <Route path="/post_job" element={<PostJobComponent />} />
             <Route path="/get_job" element={<JobListComponent />} />
+            <Route
+              path="/featured_companies"
+              element={<FeaturedCompaniesComponent />}
+            />
           </Routes>
         </div>
 

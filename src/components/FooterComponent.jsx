@@ -17,7 +17,7 @@ function FooterComponent() {
             <h5 className="text-uppercase mb-4 fw-bold text-success">
               JobhubPortal
             </h5>
-            <p className="small text-muted">
+            <p className="small text-secondary">
               Connecting talented professionals with their dream careers in
               Kenya. Find your next opportunity or hire the best talent today.
             </p>
@@ -65,6 +65,14 @@ function FooterComponent() {
                 Contact
               </Link>
             </p>
+            <p>
+              <Link
+                className="nav-link fs-6 fw-medium"
+                to="/featured_companies"
+              >
+                🌟 Featured Companies 🌟
+              </Link>
+            </p>
           </div>
 
           {/* Contact Info */}
@@ -93,8 +101,8 @@ function FooterComponent() {
             <div className="input-group mb-3 shadow-sm">
               <input
                 type="email"
-                className="form-control border-success bg-transparent text-white"
-                placeholder="Your Email"
+                className="form-control border-success  text-secondary"
+                placeholder="Enter your Email"
               />
               <button className="btn btn-success fw-bold" type="button">
                 Join
