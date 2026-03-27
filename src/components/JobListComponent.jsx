@@ -48,7 +48,9 @@ function JobListComponent() {
   return (
     <div className="container p-0">
       <h2 className="text-center my-4 fw-bold">
-        <marquee>Available Jobs</marquee>
+        <marquee>
+          Available Jobs.............. Available Jobs............ Available Jobs
+        </marquee>
       </h2>
 
       {/* --- Filter & Sort Controls --- */}
