@@ -110,7 +110,9 @@ function FooterComponent() {
           <div className="col-md-7 col-lg-8">
             <p className="small text-muted">
               <strong className="text-success">
-                <marquee>© All rights reserved by: Javanson mwolobi</marquee>
+                <marquee>
+                  © All rights reserved.Developed by: Javanson mwolobi
+                </marquee>
               </strong>
             </p>
           </div>
