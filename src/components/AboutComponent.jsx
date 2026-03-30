@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function AboutComponent() {
   return (
@@ -16,12 +17,18 @@ function AboutComponent() {
           the best companies.
         </p>
         <div className="mt-4">
-          <button className="btn btn-success btn-lg px-5 fw-bold shadow-sm me-2">
-            Browse Jobs
-          </button>
-          <button className="btn btn-outline-dark btn-lg px-5 fw-bold">
-            Post a Job
-          </button>
+          <Link
+            to="/get_job"
+            className="btn btn-success btn-lg px-5 fw-bold shadow-sm me-2"
+          >
+            Browse jobs
+          </Link>
+          <Link
+            to="/post_job"
+            className="btn btn-outline-dark btn-lg px-5 fw-bold"
+          >
+            Post a job
+          </Link>
         </div>
       </div>
 
