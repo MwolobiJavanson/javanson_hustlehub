@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Route, useNavigate } from "react-router-dom";
+import FeaturedCompaniesComponent from "./FeaturedCompanyComponent";
 
 function JobListComponent() {
   const [jobs, setJobs] = useState([]);
@@ -47,6 +48,7 @@ function JobListComponent() {
 
   return (
     <div className="container p-0">
+      <FeaturedCompaniesComponent />
       <h2 className="text-center my-4 fw-bold">
         <marquee>
           Available Jobs.............. Available Jobs............ Available Jobs
