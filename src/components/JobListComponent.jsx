@@ -105,7 +105,7 @@ function JobListComponent() {
               <div className="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
                 {job.job_image && (
                   <img
-                    src={`http://localhost:5000/static/images/${job.job_image}`}
+                    src={`http://jmwolobi.alwaysdata.net/static/images/${job.job_image}`}
                     className="card-img-top"
                     alt="job"
                     style={{ height: "200px", objectFit: "cover" }}
