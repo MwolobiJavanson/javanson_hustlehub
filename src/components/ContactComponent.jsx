@@ -28,7 +28,7 @@ function ContactComponent() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/contact",
+        "http://jmwolobi.alwaysdata.net/api/contact",
         formData,
       );
 

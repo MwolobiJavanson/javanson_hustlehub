@@ -16,7 +16,9 @@ function JobListComponent() {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/get_jobs");
+      const res = await axios.get(
+        "http://jmwolobi.alwaysdata.net/api/get_jobs",
+      );
       setJobs(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Fetch error", err);

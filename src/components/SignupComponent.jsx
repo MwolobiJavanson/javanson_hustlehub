@@ -30,7 +30,10 @@ function SignupComponent() {
     data.append("password", password);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/signup", data);
+      const res = await axios.post(
+        "http://jmwolobi.alwaysdata.net/api/signup",
+        data,
+      );
 
       // 2. Clear the input fields immediately after successful API call
       setUsername("");

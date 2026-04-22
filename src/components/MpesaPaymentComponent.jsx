@@ -27,11 +27,14 @@ function MpesaPaymentComponent() {
     setMessage("Requesting STK Push... Check your phone.");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/stk_push", {
-        phone: phone,
-        amount: application_fee,
-        job_id: job_id,
-      });
+      const res = await axios.post(
+        "http://jmwolobi.alwaysdata.net/api/stk_push",
+        {
+          phone: phone,
+          amount: application_fee,
+          job_id: job_id,
+        },
+      );
 
       if (res.data.CheckoutRequestID) {
         alert("Payment initiated! Enter your PIN on your phone.");

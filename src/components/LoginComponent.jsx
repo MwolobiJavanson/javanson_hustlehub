@@ -24,7 +24,10 @@ function LoginComponent() {
     data.append("password", password);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/login", data);
+      const res = await axios.post(
+        "http://jmwolobi.alwaysdata.net/api/login",
+        data,
+      );
 
       if (res.data.user) {
         // Clear fields

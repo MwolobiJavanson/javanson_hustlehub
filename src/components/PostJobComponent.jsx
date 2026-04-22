@@ -37,7 +37,7 @@ function PostJobComponent() {
     if (image) data.append("job_image", image);
 
     try {
-      await axios.post("http://localhost:5000/api/post_job", data);
+      await axios.post("http://jmwolobi.alwaysdata.net/api/post_job", data);
 
       // 1. Clear Form Data immediately
       setTitle("");
