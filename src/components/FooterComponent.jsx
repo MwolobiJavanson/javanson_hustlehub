@@ -1,141 +1,142 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import BrandLogo from "./BrandLogo";
+import { FiMail } from "react-icons/fi";
+
+const primaryLinks = [
+  { label: "Dashboard", to: "/dashboard" },
+  { label: "Browse Jobs", to: "/jobs" },
+  { label: "Post a Job", to: "/post_job" },
+  { label: "Services", to: "/services" },
+];
+
+const supportLinks = [
+  { label: "About Fixmtaa", to: "/about" },
+  { label: "Contact Support", to: "/contact" },
+  { label: "Reports", to: "/reports" },
+  { label: "Skills", to: "/skills" },
+];
 
 function FooterComponent() {
-  // This helper function ensures that when a link is clicked,
-  // the page scrolls back to the top automatically.
+  const year = new Date().getFullYear();
+  const navigate = useNavigate();
+
+  const protectedRoutes = [
+    "/dashboard",
+    "/jobs",
+    "/post_job",
+    "/services",
+    "/reports",
+    "/skills",
+    "/stats",
+  ];
+
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const isAuthenticated = () => {
+    try {
+      return !!JSON.parse(localStorage.getItem("user") || "null");
+    } catch (err) {
+      return false;
+    }
+  };
+
+  const renderLink = (link) => (
+    <li className="mb-2" key={link.to}>
+      <Link
+        to={link.to}
+        onClick={(e) => {
+          // If the route is protected and user is not authenticated, send them to login
+          if (protectedRoutes.includes(link.to) && !isAuthenticated()) {
+            e.preventDefault();
+            // navigate to login and include intended destination in state
+            navigate("/login", { state: { redirectTo: link.to } });
+            return;
+          }
+
+          scrollToTop();
+        }}
+        className="text-white-50 text-decoration-none"
+      >
+        {link.label}
+      </Link>
+    </li>
+  );
+
   return (
-    <footer className="bg-dark text-white pt-5 pb-4 mt-5">
-      <div className="container text-center text-md-start">
-        <div className="row">
-          {/* Company Info */}
-          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              JobhubPortal
-            </h5>
-            <p className="small text-secondary">
-              Connecting talented professionals with their dream careers in
-              Kenya. Find your next opportunity or hire the best talent today.
+    <footer className="bg-dark bg-gradient text-white pt-5 navbar-modern">
+      <div className="container">
+        <div className="row g-4 pb-4">
+          <div className="col-lg-4">
+            <Link
+              to="/dashboard"
+              onClick={scrollToTop}
+              className="d-inline-flex align-items-center text-white text-decoration-none mb-3"
+            >
+              <BrandLogo size={42} textClassName="h4 text-white mb-0 fw-bold" />
+            </Link>
+            <p className="text-white-50 mb-4" style={{ maxWidth: 420 }}>
+              Connecting local talent, employers, and service providers with a
+              simple hiring experience built for Kenya.
             </p>
+            <div className="d-flex flex-wrap gap-2">
+              <span className="badge rounded-pill bg-primary-subtle text-primary fw-bold px-3 py-2">
+                Jobs
+              </span>
+              <span className="badge rounded-pill bg-success-subtle text-success fw-bold px-3 py-2">
+                Services
+              </span>
+              <span className="badge rounded-pill text-bg-light px-3 py-2 text-dark">
+                M-Pesa Ready
+              </span>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Quick Links
-            </h5>
-            {/* Added onClick to reset scroll position when navigating */}
-            <p>
-              <Link
-                to="/"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Home
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/get_job"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Browse Jobs
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/about"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                About Us
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/contact"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Contact
-              </Link>
-            </p>
+          <div className="col-6 col-lg-2">
+            <h2 className="h6 text-uppercase fw-bold mb-3">Platform</h2>
+            <ul className="list-unstyled mb-0">
+              {primaryLinks.map(renderLink)}
+            </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Contact
-            </h5>
-            <p className="small">
-              <i className="fas fa-home me-2 text-success"></i> Nairobi, Kenya
-            </p>
-            <p className="small">
-              <i className="fas fa-envelope me-2 text-success"></i>{" "}
-              support@jobhubportal.co.ke
-            </p>
-            <p className="small">
-              <i className="fas fa-phone me-2 text-success"></i> +254 718 840
-              790
-            </p>
+          <div className="col-6 col-lg-2">
+            <h2 className="h6 text-uppercase fw-bold mb-3">Support</h2>
+            <ul className="list-unstyled mb-0">
+              {supportLinks.map(renderLink)}
+            </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Newsletter
-            </h5>
-            <div className="input-group mb-3 shadow-sm">
-              <input
-                type="email"
-                className="form-control border-success  text-secondary"
-                placeholder="Enter your Email"
-              />
-              <button className="btn btn-success fw-bold" type="button">
-                Join
-              </button>
+          <div className="col-lg-4">
+            <h2 className="h6 text-uppercase fw-bold mb-3">Get Help</h2>
+            <div className="bg-white bg-opacity-10 border border-white border-opacity-10 rounded-4 p-4">
+              <p className="text-white-50 small mb-3">
+                Need help with an account, payment, job post, or application?
+                Reach the support team and we will guide you through it.
+              </p>
+              <div className="d-grid gap-2">
+                <Link
+                  to="/contact"
+                  className="btn btn-primary btn-modern btn-primary-custom rounded-4 fw-bold shadow-sm hover\:scale"
+                >
+                  <FiMail className="me-2" /> Contact Support
+                </Link>
+                <a
+                  href="mailto:support@fixmtaa.co.ke"
+                  className="text-white-50 text-decoration-none small text-center"
+                >
+                  support@fixmtaa.co.ke
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <hr className="mb-4 opacity-25" />
-
-        {/* Bottom Bar */}
-        <div className="row align-items-center">
-          <div className="col-md-7 col-lg-8">
-            <p className="small text-muted">
-              <strong className="text-success">
-                <marquee>© All rights reserved by: Javanson mwolobi</marquee>
-              </strong>
-            </p>
-          </div>
-
-          <div className="col-md-5 col-lg-4">
-            <div className="text-center text-md-end">
-              <ul className="list-unstyled list-inline mb-0">
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className="border-top border-white border-opacity-10 py-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+          <p className="small text-white-50 mb-0">
+            Copyright {year} Fixmtaa. All rights reserved.
+          </p>
+          <p className="small text-white-50 mb-0">Built by Javanson Mwolobi</p>
         </div>
       </div>
     </footer>

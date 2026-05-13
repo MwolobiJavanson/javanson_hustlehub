@@ -1,0 +1,18 @@
+po# Professional Styling Upgrade TODO
+
+## Plan Summary
+Global theme in index.css + enhanced Bootstrap classes/animations across 18 components.
+
+## Steps
+- [x] 1. Overhaul src/index.css with CSS vars, utilities, Google Fonts prep.
+- [x] 2. Update public/index.html for Inter font.
+- [x] 3. Merge/refine src/App.css styles into index.css; minor App.js tweaks.
+
+
+- [ ] 5. Edit form-heavy: LoginComponent.jsx, SignupComponent.jsx, PostJobComponent.jsx, ContactComponent.jsx.
+- [ ] 6. Edit dashboard/content: DashboardComponent.jsx, AboutComponent.jsx, StatsComponent.jsx.
+- [ ] 7. Edit remaining: BrandLogo.jsx, FeaturedCompanyComponent.jsx, MpesaPaymentComponent.jsx, ReportsComponent.jsx, ServicesComponent.jsx, SkillsComponent.jsx, SplashComponent.jsx.
+- [ ] 8. Test: `npm start`, check all routes, mobile, hovers. Update progress.
+
+**Progress: 0/8 complete**
+

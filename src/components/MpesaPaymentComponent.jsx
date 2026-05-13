@@ -27,11 +27,14 @@ function MpesaPaymentComponent() {
     setMessage("Requesting STK Push... Check your phone.");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/stk_push", {
-        phone: phone,
-        amount: application_fee,
-        job_id: job_id,
-      });
+      const res = await axios.post(
+        "https://jmwolobi.alwaysdata.net/api/stk_push",
+        {
+          phone: phone,
+          amount: application_fee,
+          job_id: job_id,
+        },
+      );
 
       if (res.data.CheckoutRequestID) {
         alert("Payment initiated! Enter your PIN on your phone.");
@@ -58,7 +61,7 @@ function MpesaPaymentComponent() {
           <div className="text-center mb-4">
             {job_image && (
               <img
-                src={`http://localhost:5000/static/images/${job_image}`}
+                src={`https://jmwolobi.alwaysdata.net/static/images/${job_image}`}
                 alt="job"
                 className="img-fluid rounded mb-3"
                 style={{ maxHeight: "150px", objectFit: "cover" }}

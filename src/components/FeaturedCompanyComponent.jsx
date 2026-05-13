@@ -1,4 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FiPhone,
+  FiBriefcase,
+  FiHome,
+  FiCpu,
+  FiMapPin,
+  FiShoppingCart,
+} from "react-icons/fi";
 
 function FeaturedCompaniesComponent() {
   const companies = [
@@ -6,7 +15,7 @@ function FeaturedCompaniesComponent() {
       id: 1,
       name: "Safaricom",
       sector: "Telecommunications",
-      icon: "📲",
+      icon: <FiPhone />,
       bgColor: "honeydew",
       textColor: "seagreen",
     },
@@ -14,7 +23,7 @@ function FeaturedCompaniesComponent() {
       id: 2,
       name: "KCB Bank",
       sector: "Banking & Finance",
-      icon: "🦁",
+      icon: <FiBriefcase />,
       bgColor: "lightyellow",
       textColor: "goldenrod",
     },
@@ -22,7 +31,7 @@ function FeaturedCompaniesComponent() {
       id: 3,
       name: "Equity Group",
       sector: "Financial Services",
-      icon: "🏠",
+      icon: <FiHome />,
       bgColor: "snow",
       textColor: "darkred",
     },
@@ -30,7 +39,7 @@ function FeaturedCompaniesComponent() {
       id: 4,
       name: "Andela",
       sector: "Tech & Software",
-      icon: "💻",
+      icon: <FiCpu />,
       bgColor: "aliceblue",
       textColor: "royalblue",
     },
@@ -38,7 +47,7 @@ function FeaturedCompaniesComponent() {
       id: 5,
       name: "Kenya Airways",
       sector: "Aviation",
-      icon: "✈️",
+      icon: <FiMapPin />,
       bgColor: "whitesmoke",
       textColor: "darkslategray",
     },
@@ -46,7 +55,7 @@ function FeaturedCompaniesComponent() {
       id: 6,
       name: "Jumia Kenya",
       sector: "E-commerce",
-      icon: "🛒",
+      icon: <FiShoppingCart />,
       bgColor: "oldlace",
       textColor: "chocolate",
     },
@@ -69,34 +78,40 @@ function FeaturedCompaniesComponent() {
       <div className="row g-4 justify-content-center">
         {companies.map((company) => (
           <div key={company.id} className="col-6 col-md-4 col-lg-2">
-            <div
-              className="card h-100 border-0 shadow-sm text-center p-3 bg-white"
-              style={{ borderRadius: "15px" }}
+            <Link
+              to={`/jobs?company_id=${company.id}`}
+              className="text-decoration-none"
+              aria-label={`View jobs at ${company.name}`}
             >
-              {/* Icon Container using Color Names */}
               <div
-                className="mx-auto d-flex align-items-center justify-content-center mb-3"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  backgroundColor: company.bgColor,
-                  borderRadius: "12px",
-                  fontSize: "1.8rem",
-                }}
+                className="card h-100 border-0 shadow-sm text-center p-3 bg-white"
+                style={{ borderRadius: "15px" }}
               >
-                {company.icon}
-              </div>
+                {/* Icon Container using Color Names */}
+                <div
+                  className="mx-auto d-flex align-items-center justify-content-center mb-3"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    backgroundColor: company.bgColor,
+                    borderRadius: "12px",
+                    fontSize: "1.8rem",
+                  }}
+                >
+                  {company.icon}
+                </div>
 
-              <h6
-                className="fw-bold mb-1 small"
-                style={{ color: company.textColor }}
-              >
-                {company.name}
-              </h6>
-              <p className="text-muted mb-0" style={{ fontSize: "0.75rem" }}>
-                {company.sector}
-              </p>
-            </div>
+                <h6
+                  className="fw-bold mb-1 small"
+                  style={{ color: company.textColor }}
+                >
+                  {company.name}
+                </h6>
+                <p className="text-muted mb-0" style={{ fontSize: "0.75rem" }}>
+                  {company.sector}
+                </p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
