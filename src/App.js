@@ -1,43 +1,39 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginComponent from "./components/LoginComponent";
-import SignupComponent from "./components/SignupComponent";
-import MpesaPaymentComponent from "./components/MpesaPaymentComponent";
-import NavbarComponent from "./components/NavbarComponent";
-import PostJobComponent from "./components/PostJobComponent";
-import JobListComponent from "./components/JobListComponent";
-import FooterComponent from "./components/FooterComponent";
-import AboutComponent from "./components/AboutComponent";
-import ContactComponent from "./components/ContactComponent";
-import FeaturedCompaniesComponent from "./components/FeaturedCompanyComponent";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
+import { Routes, Route, Navigate } from "react-router-dom";
+import SignupComponent from "./components/SignupComponent.jsx";
+import LoginComponent from "./components/LoginComponent.jsx";
+import DashboardComponent from "./components/DashboardComponent.jsx";
+import JobListComponent from "./components/JobListComponent.jsx";
+import PostJobComponent from "./components/PostJobComponent.jsx";
+import FooterComponent from "./components/FooterComponent.jsx";
+import NavbarComponent from "./components/NavbarComponent.jsx";
+import "./App.css";
+
+
+function Layout({ children }) {
+  return (
+    <>
+      
+      <main>{children}</main>
+      <FooterComponent />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <NavbarComponent />
+    <Routes>
+      {/* Auth pages usually don't have the main Navbar */}
+      <Route path="/login" element={<LoginComponent />} />
+      <Route path="/signup" element={<SignupComponent />} />
 
-        <div className="container mt-4" style={{ minHeight: "80vh" }}>
-          <Routes>
-            <Route path="/" element={<LoginComponent />} />
-            <Route path="/signup" element={<SignupComponent />} />
-            <Route path="/about" element={<AboutComponent />} />
-            <Route path="/contact" element={<ContactComponent />} />
-            <Route path="/payment" element={<MpesaPaymentComponent />} />
-            <Route path="/post_job" element={<PostJobComponent />} />
-            <Route path="/get_job" element={<JobListComponent />} />
-            <Route
-              path="/featured_companies"
-              element={<FeaturedCompaniesComponent />}
-            />
-          </Routes>
-        </div>
+      {/* Wrap all other pages in the Layout */}
+      <Route path="/dashboard" element={<Layout><DashboardComponent /></Layout>} />
+      <Route path="/get_job" element={<Layout><JobListComponent /></Layout>} />
+      <Route path="/jobs" element={<Layout><JobListComponent /></Layout>} />
+      <Route path="/post_job" element={<Layout><PostJobComponent /></Layout>} />
 
-        <FooterComponent />
-      </BrowserRouter>
-    </div>
+      <Route path="*" element={<Navigate replace to="/dashboard" />} />
+    </Routes>
   );
 }
 

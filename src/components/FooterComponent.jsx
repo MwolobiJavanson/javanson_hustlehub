@@ -1,143 +1,77 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import BrandLogo from "./BrandLogo";
+import { FiMail, FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 function FooterComponent() {
-  // This helper function ensures that when a link is clicked,
-  // the page scrolls back to the top automatically.
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  const year = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: <FiFacebook size={20} />, href: "https://facebook.com", label: "Facebook" },
+    { icon: <FiTwitter size={20} />, href: "https://twitter.com", label: "Twitter" },
+    { icon: <FiInstagram size={20} />, href: "https://instagram.com", label: "Instagram" },
+    { icon: <FiLinkedin size={20} />, href: "https://linkedin.com", label: "LinkedIn" },
+  ];
 
   return (
-    <footer className="bg-dark text-white pt-5 pb-4 mt-5">
-      <div className="container text-center text-md-start">
-        <div className="row">
-          {/* Company Info */}
-          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              JobhubPortal
-            </h5>
-            <p className="small text-secondary">
-              Connecting talented professionals with their dream careers in
-              Kenya. Find your next opportunity or hire the best talent today.
+    <footer className="bg-dark text-white pt-5 pb-4">
+      <div className="container">
+        <div className="row align-items-center">
+          {/* Brand and Description */}
+          <div className="col-lg-5 mb-4 mb-lg-0">
+            <Link to="/" className="d-inline-flex align-items-center text-white text-decoration-none mb-3">
+              <BrandLogo size={40} textClassName="h4 text-white mb-0 fw-bold" />
+              <span className="ms-2 h4 mb-0 fw-bold">JobHub</span>
+            </Link>
+            <p className="text-white-50 mb-0" style={{ maxWidth: "400px" }}>
+              Connecting local talent and employers with a simple hiring experience. 
+              Find your next opportunity or hire the best talent today.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Quick Links
-            </h5>
-            {/* Added onClick to reset scroll position when navigating */}
-            <p>
-              <Link
-                to="/"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Home
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/get_job"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Browse Jobs
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/about"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                About Us
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/contact"
-                onClick={scrollToTop}
-                className="text-white text-decoration-none small"
-              >
-                Contact
-              </Link>
-            </p>
-          </div>
-
-          {/* Contact Info */}
-          <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Contact
-            </h5>
-            <p className="small">
-              <i className="fas fa-home me-2 text-success"></i> Nairobi, Kenya
-            </p>
-            <p className="small">
-              <i className="fas fa-envelope me-2 text-success"></i>{" "}
-              support@jobhubportal.co.ke
-            </p>
-            <p className="small">
-              <i className="fas fa-phone me-2 text-success"></i> +254 718 840
-              790
-            </p>
-          </div>
-
-          {/* Newsletter */}
-          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold text-success">
-              Newsletter
-            </h5>
-            <div className="input-group mb-3 shadow-sm">
-              <input
-                type="email"
-                className="form-control border-success  text-secondary"
-                placeholder="Enter your Email"
-              />
-              <button className="btn btn-success fw-bold" type="button">
-                Join
-              </button>
+          {/* Social Media Links */}
+          <div className="col-lg-3 mb-4 mb-lg-0 text-lg-center">
+            <h6 className="text-uppercase fw-bold mb-3 small opacity-75">Follow Us</h6>
+            <div className="d-flex justify-content-lg-center gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="text-white-50 hover-white transition"
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
+          </div>
+
+          {/* Contact Button */}
+          <div className="col-lg-4 text-lg-end">
+            <a href="mailto:support@jobhub.com" className="btn btn-outline-light rounded-pill px-4">
+              <FiMail className="me-2" /> Contact Support
+            </a>
           </div>
         </div>
 
-        <hr className="mb-4 opacity-25" />
+        <hr className="my-4 border-secondary opacity-25" />
 
         {/* Bottom Bar */}
-        <div className="row align-items-center">
-          <div className="col-md-7 col-lg-8">
-            <p className="small text-muted">
-              <strong className="text-success">
-                <marquee>© All rights reserved by: Javanson mwolobi</marquee>
-              </strong>
-            </p>
-          </div>
-
-          <div className="col-md-5 col-lg-4">
-            <div className="text-center text-md-end">
-              <ul className="list-unstyled list-inline mb-0">
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="#" className="text-secondary ms-3 fs-5">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+          <p className="small text-white-50 mb-0">
+            © {year} JobHub. All rights reserved.
+          </p>
+          <p className="small text-white-50 mb-0">
+            Developed by <span className="text-white">Deng Khot</span>
+          </p>
         </div>
       </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hover-white:hover { color: #fff !important; transform: translateY(-2px); }
+        .transition { transition: all 0.2s ease-in-out; }
+      `}} />
     </footer>
   );
 }

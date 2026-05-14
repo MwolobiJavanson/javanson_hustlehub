@@ -1,11 +1,7 @@
-# Task Progress: Make Signup dark background and card match Login exactly
+# TODO
+- [x] Remove route-level authentication gating in `src/App.js` (make all routes public).
+- [x] Remove auth checks inside components that previously forced login (`JobListComponent`, `PostJobComponent`, `ServicesComponent`, `ReportsComponent`, `SkillsComponent`, `SplashComponent`, `LogoutComponent`).
+- [ ] Fix TypeScript/JS syntax error in `src/components/SkillsComponent.jsx` reported as `Unexpected token`.
+- [ ] Run build/test to confirm app compiles.
 
-## Completed Steps:
-- [x] Step 1: Updated SignupComponent.jsx to match Login styling exactly (dark bg, header, paddings, input/button classes, etc.).
-- [x] Step 2: File ready for browser testing.
-
-## Next:
-Run `npm start` and navigate to /signup to verify.
-
-Task complete.
 
